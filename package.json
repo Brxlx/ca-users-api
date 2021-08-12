@@ -1,0 +1,19 @@
+{
+  "name": "ca-users-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Brxlx/ca-users-api.git",
+  "author": "Bruno Santos",
+  "license": "MIT",
+  "scripts": {
+    "dev:start": "node build/app.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "fastify": "^3.20.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.6.1",
+    "typescript": "4.3.5"
+  }
+}
