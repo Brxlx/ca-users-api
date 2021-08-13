@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import fastify from 'fastify';
 import cors from 'fastify-cors';
-// import fastifyExpress from 'fastify-express';
 
 const app = fastify();
 
@@ -12,9 +11,7 @@ app.register(cors, {
     if (/localhost/.test(org) || /undefined/.test(org)) {
       cb(null, true);
     }
-    setTimeout(() => {
-      cb(new Error('Not allowed origin'), false);
-    }, 750);
+    cb(new Error('Not allowed origin'), false);
   },
 });
 
