@@ -16,7 +16,7 @@ class UsersRoutes {
       this.fastify.register(
         (instance: FastifyInstance, opts: FastifyPluginOptions, next) => {
           // Rotas dentro do mesmo grupo
-          instance.get('/', createUserController.handle);
+          instance.post('/', createUserController.handle);
           next();
         },
         { prefix: 'users' }

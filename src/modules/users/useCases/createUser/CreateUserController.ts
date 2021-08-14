@@ -7,7 +7,7 @@ class CreateUserController {
 
   async handle(req: FastifyRequest, reply: FastifyReply): Promise<void> {
     req.log.warn(req.protocol);
-    reply.send({ resp: 'Aeee papai' });
+    reply.status(201).send({ resp: 'Aeee papai' });
   }
 }
 
