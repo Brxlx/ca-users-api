@@ -12,9 +12,11 @@ class UsersRoutes {
 
   public loadRoutes(): void {
     try {
+      // Registra cada rota no plugin
       this.fastify.register(
         (instance: FastifyInstance, opts: FastifyPluginOptions, next) => {
-          instance.get('/', opts, createUserController.handle);
+          // Rotas dentro do mesmo grupo
+          instance.get('/', createUserController.handle);
           next();
         },
         { prefix: 'users' }
