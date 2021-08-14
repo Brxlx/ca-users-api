@@ -1,7 +1,6 @@
-import { UsersRepository } from './implementations/UsersRepository';
-
-class IUsersRepository implements UsersRepository {
-  send: () => Promise<string>;
+class IUsersRepository {
+  public send: () => Promise<string>;
+  // send: () => Promise<void>;
 }
 
 export { IUsersRepository };

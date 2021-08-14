@@ -5,9 +5,7 @@ import { CreateUserController } from '../modules/users/useCases/createUser/Creat
 const createUserController = new CreateUserController();
 
 class UsersRoutes {
-  constructor(private fastify: FastifyInstance) {
-    this.fastify = fastify;
-  }
+  constructor(private fastify: FastifyInstance) {}
 
   public loadRoutes(): void {
     try {
