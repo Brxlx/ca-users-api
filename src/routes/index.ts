@@ -1,14 +1,13 @@
-import { FastifyInstance } from 'fastify';
+import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 
-import { CreateUserController } from '../modules/users/useCases/createUser/CreateUserController';
-import { CreateUserUseCase } from '../modules/users/useCases/createUser/CreateUserUseCase';
+import { UsersRoutes } from './users.routes';
 
-const opts = {};
-const createUserController = new CreateUserController(CreateUserUseCase);
-
+// const userRoutes = new UsersRoutes();
 class Routes {
-  public loadRoutes(fastify: FastifyInstance, options: any, done: Function) {
-    fastify.get('/', opts, createUserController.handle);
+  public loadRoutes(fastify: FastifyInstance, options: FastifyPluginOptions, done: Function) {
+    // userRoutes.loadRoutes(fastify);
+    new UsersRoutes(fastify).loadRoutes();
+
     done();
   }
 }
