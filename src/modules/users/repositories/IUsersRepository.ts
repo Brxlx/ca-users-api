@@ -1,0 +1,3 @@
+class IUsersRepository {}
+
+export { IUsersRepository };
