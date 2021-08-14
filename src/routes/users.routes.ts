@@ -10,14 +10,18 @@ class UsersRoutes {
     this.fastify = fastify;
   }
 
-  public loadRoutes() {
-    this.fastify.register(
-      (instance: FastifyInstance, opts: FastifyPluginOptions, next) => {
-        instance.get('/', opts, createUserController.handle);
-        next();
-      },
-      { prefix: 'users' }
-    );
+  public loadRoutes(): void {
+    try {
+      this.fastify.register(
+        (instance: FastifyInstance, opts: FastifyPluginOptions, next) => {
+          instance.get('/', opts, createUserController.handle);
+          next();
+        },
+        { prefix: 'users' }
+      );
+    } catch (err) {
+      this.fastify.log.error(err);
+    }
   }
 }
 
