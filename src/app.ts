@@ -1,8 +1,10 @@
+import 'reflect-metadata';
 import 'dotenv/config';
 import fastify from 'fastify';
 import cors from 'fastify-cors';
 
 import { Routes } from './routes';
+import './shared/container';
 
 const app = fastify({ logger: true });
 

@@ -1,9 +1,8 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 
 import { CreateUserController } from '../modules/users/useCases/createUser/CreateUserController';
-import { CreateUserUseCase } from '../modules/users/useCases/createUser/CreateUserUseCase';
 
-const createUserController = new CreateUserController(CreateUserUseCase);
+const createUserController = new CreateUserController();
 
 class UsersRoutes {
   constructor(private fastify: FastifyInstance) {
