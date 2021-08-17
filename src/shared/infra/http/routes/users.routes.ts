@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 
-import { CreateUserController } from '../modules/users/useCases/createUser/CreateUserController';
+import { CreateUserController } from '../../../../modules/users/useCases/createUser/CreateUserController';
 
 const createUserController = new CreateUserController();
 

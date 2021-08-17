@@ -1,4 +1,4 @@
-import { IUsersRepository } from '../IUsersRepository';
+import { IUsersRepository } from '../../../repositories/contracts/IUsersRepository';
 
 class UsersRepository implements IUsersRepository {
   // private usersRepository: Repository<Users>

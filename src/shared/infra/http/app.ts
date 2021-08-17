@@ -3,9 +3,9 @@ import 'dotenv/config';
 import fastify from 'fastify';
 import cors from 'fastify-cors';
 
-import { dbConnect } from './database';
+import { dbConnect } from '../database/typeorm';
 import { Routes } from './routes';
-import './shared/container';
+import '../../container';
 
 const app = fastify({ logger: true });
 

@@ -6,7 +6,7 @@
   "author": "Bruno Santos",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch --no-notify src/server.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch --no-notify src/shared/infra/http/server.ts",
     "db": "ts-node-dev ./node_modules/typeorm/cli",
     "build": "tsc"
   },
