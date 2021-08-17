@@ -7,7 +7,7 @@ import { dbConnect } from '../database/typeorm';
 import { Routes } from './routes';
 import '../../container';
 
-const app = fastify({ logger: true });
+const app = fastify({ logger: { level: 'trace' }, trustProxy: ['127.0.0.1', '192.168.0.100/24'] });
 
 // cors configuration
 app.register(cors, {

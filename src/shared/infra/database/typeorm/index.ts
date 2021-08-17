@@ -14,7 +14,7 @@ const createConnection = async (fastify: FastifyInstance) => {
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
       cli: {
-        entitiesDir: './src/modules/**/entities/*.ts',
+        entitiesDir: './src/modules/**/infra/typeorm/entities/*.ts',
         migrationsDir: './src/database/migrations/*.ts',
       },
     });
