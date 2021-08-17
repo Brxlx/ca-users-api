@@ -1,7 +1,7 @@
 {
   "name": "ca-users-api",
   "version": "1.0.0",
-  "main": "src/server.ts",
+  "main": "src/shared/infra/http/server.ts",
   "repository": "git@github.com:Brxlx/ca-users-api.git",
   "author": "Bruno Santos",
   "license": "MIT",
