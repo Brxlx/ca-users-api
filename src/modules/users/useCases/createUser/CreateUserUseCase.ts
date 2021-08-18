@@ -10,9 +10,9 @@ class CreateUserUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  async execute(): Promise<User[]> {
+  async execute(): Promise<[User[], number]> {
     try {
-      const resp = await this.usersRepository.findAll();
+      const resp = await this.usersRepository.create();
       return resp;
     } catch (err) {
       throw new Error(err);
