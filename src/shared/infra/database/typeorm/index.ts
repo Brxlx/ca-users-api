@@ -4,7 +4,7 @@ import fastifyPlugin from 'fastify-plugin';
 // import { resolve } from 'path';
 import { getConnectionManager, Connection } from 'typeorm';
 
-import config from './config';
+import { config } from './config';
 
 const createConnection = async (fastify: FastifyInstance) => {
   try {

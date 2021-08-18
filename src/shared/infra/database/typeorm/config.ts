@@ -7,7 +7,7 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 //   return mode !== 'dev';
 // }
 // Check typeORM documentation for more information.
-const config: ConnectionOptions = {
+export const config: ConnectionOptions = {
   type: 'postgres',
   host: process.env.DB_HOST,
   port: +process.env.DB_PORT,
@@ -50,5 +50,3 @@ const config: ConnectionOptions = {
     migrationsDir: 'src/shared/infra/database/typeorm/migrations',
   },
 };
-
-export = config;
