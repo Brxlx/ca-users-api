@@ -10,9 +10,9 @@ class UsersRepository implements IUsersRepository {
     this.usersRepository = getRepository(User);
   }
 
-  public async create(): Promise<[User[], number]> {
-    const findAndCount = await this.usersRepository.findAndCount();
-    return findAndCount;
+  public async create() {
+    // const findAndCount = await this.usersRepository.findAndCount();
+    throw new Error();
   }
 
   public async findAll(): Promise<User[]> {
