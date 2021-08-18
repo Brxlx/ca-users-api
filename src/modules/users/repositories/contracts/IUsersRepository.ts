@@ -1,5 +1,7 @@
+import { User } from '../../infra/typeorm/entities/Users';
+
 abstract class IUsersRepository {
-  public send: () => Promise<string>;
+  public findAll: () => Promise<User[]>;
 }
 
 export { IUsersRepository };

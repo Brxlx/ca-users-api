@@ -1,24 +1,20 @@
 import 'dotenv/config';
 import { FastifyInstance } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
+// import { resolve } from 'path';
 import { getConnectionManager, Connection } from 'typeorm';
+
+import config from './config';
 
 const createConnection = async (fastify: FastifyInstance) => {
   try {
     const connectionManager = getConnectionManager();
-    const connection: Connection = connectionManager.create({
-      type: 'postgres',
-      host: process.env.DB_HOST,
-      port: +process.env.DB_PORT,
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_DATABASE,
-      cli: {
-        entitiesDir: './src/modules/**/infra/typeorm/entities/*.ts',
-        migrationsDir: './src/database/migrations/*.ts',
-      },
-    });
+    const connection: Connection = connectionManager.create(config);
+    // console.log(connection);
     await connection.connect(); // performs connection
+    // await connection.runMigrations();
+    // console.log(connection.migrations);
+    // console.log(connection.entityMetadatas);
     console.log('Connected to database');
   } catch (err) {
     // console.log(err);

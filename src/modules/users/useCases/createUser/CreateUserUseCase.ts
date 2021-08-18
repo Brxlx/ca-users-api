@@ -1,5 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
+import { User } from '../../infra/typeorm/entities/Users';
 import { IUsersRepository } from '../../repositories/contracts/IUsersRepository';
 
 @injectable()
@@ -9,10 +10,13 @@ class CreateUserUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  async execute(): Promise<string> {
-    const resp = await this.usersRepository.send();
-
-    return resp;
+  async execute(): Promise<User[]> {
+    try {
+      const resp = await this.usersRepository.findAll();
+      return resp;
+    } catch (err) {
+      throw new Error(err);
+    }
   }
 }
 
