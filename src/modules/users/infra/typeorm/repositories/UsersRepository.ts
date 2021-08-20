@@ -11,8 +11,9 @@ class UsersRepository implements IUsersRepository {
   }
 
   public async create() {
+    // throw new AppError('Mioi');
     // const findAndCount = await this.usersRepository.findAndCount();
-    throw new Error();
+    // throw new Error();
   }
 
   public async findAll(): Promise<User[]> {

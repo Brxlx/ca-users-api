@@ -7,7 +7,7 @@ class CreateUserController {
   async handle(req: FastifyRequest, reply: FastifyReply): Promise<void> {
     const createUserUseCase = container.resolve(CreateUserUseCase);
     const resp = await createUserUseCase.execute();
-    reply.status(201).send({ resp });
+    reply.code(201).send({ resp });
   }
 }
 
