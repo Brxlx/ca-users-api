@@ -15,7 +15,7 @@ const createConnection = async (fastify: FastifyInstance) => {
     // await connection.runMigrations();
     // console.log(connection.migrations);
     // console.log(connection.entityMetadatas);
-    console.log('Connected to database');
+    fastify.log.info('Connected to database');
   } catch (err) {
     // console.log(err);
     fastify.log.error(err);
