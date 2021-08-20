@@ -14,6 +14,7 @@ const app = fastify({
     prettyPrint: true,
   },
 });
+
 // Global Error handler
 app.setErrorHandler(GlobalErrorHandler);
 
@@ -37,16 +38,14 @@ app.register(cors, _ => async (req, callback) => {
     allowedHeaders: ['Origin, X-Requested-With, Content-Type, Accept'],
     origin: true,
   };
-  const checkOrigin = req.connection.remoteAddress;
+
+  const checkOrigin = req.socket.remoteAddress;
   const whitelist = ['localhost', '127.0.0.1', '192.168.0.103'];
   if (whitelist.indexOf(checkOrigin) !== -1) {
     callback(null, options);
   } else {
     callback(new Error('Not allowed origin'));
   }
-  // callback(null, options); // callback expects two parameters: error and options
-
-  // console.log(origin);
 });
 
 // db connection

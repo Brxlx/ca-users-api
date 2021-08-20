@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch --no-notify src/shared/infra/http/server.ts",
     "db": "ts-node-dev ./node_modules/typeorm/cli --config src/shared/infra/database/typeorm/config.ts",
-    "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored"
+    "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored --no-comments"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
