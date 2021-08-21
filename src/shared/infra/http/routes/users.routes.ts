@@ -1,8 +1,11 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import { GetAllUsersController } from 'src/modules/users/useCases/getAllUsers/GetAllusersController';
+import { container } from 'tsyringe';
 
 import { CreateUserController } from '../../../../modules/users/useCases/createUser/CreateUserController';
 
-const createUserController = new CreateUserController();
+const createUserController = container.resolve(CreateUserController);
+const getAllUsersController = container.resolve(GetAllUsersController);
 
 class UsersRoutes {
   constructor(private fastify: FastifyInstance) {}
@@ -13,6 +16,7 @@ class UsersRoutes {
       this.fastify.register(
         (instance: FastifyInstance, opts: FastifyPluginOptions, next) => {
           // Rotas dentro do mesmo grupo
+          instance.get('/', getAllUsersController.handle);
           instance.post('/', createUserController.handle);
           next();
         },
