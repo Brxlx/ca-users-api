@@ -1,25 +1,27 @@
 import AppError from 'src/shared/errors/AppError';
 import { injectable, inject } from 'tsyringe';
 
-import { delay } from '../../../../shared/utils/delay';
-// import { User } from '../../infra/typeorm/entities/Users';
-import { IUsersRepository } from '../../repositories/contracts/IUsersRepository';
+import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
+import { User } from '../../infra/typeorm/entities/Users';
+import { UsersRepositoryContract } from '../../repositories/contracts/UsersRepositoryContract';
 
 @injectable()
 class CreateUserUseCase {
   constructor(
     @inject('UsersRepository')
-    private usersRepository: IUsersRepository
+    private usersRepository: UsersRepositoryContract
   ) {}
 
-  async execute(): Promise<void> {
+  async execute(data: ICreateUserDTO): Promise<User> {
+    const { nickname } = data;
+    // check if nickname already exists
+    const checkNickname = await this.usersRepository.findByNickname(nickname);
+    if (checkNickname) throw new AppError('Nickname already exists');
     try {
-      await delay(1500);
-      const resp = await this.usersRepository.create();
+      const resp = await this.usersRepository.create(data);
       return resp;
     } catch (err) {
-      console.log(err);
-      throw new AppError('oasjaushaushuahs', 405);
+      throw new AppError(`Error trying create new user -> ${err.message}`);
     }
   }
 }

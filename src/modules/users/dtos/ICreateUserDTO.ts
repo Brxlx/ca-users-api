@@ -1,6 +1,6 @@
 export interface ICreateUserDTO {
-  id: string;
-  firstname: string;
+  // id: string;
+  firstName: string;
   lastName: string;
   nickname: string;
   address: string;
