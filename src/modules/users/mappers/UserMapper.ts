@@ -7,7 +7,7 @@ class UserMapper {
       id,
       firstName,
       lastName,
-      nickname,
+      nickname: `@${nickname}`,
       address,
       bio,
     };
@@ -21,7 +21,7 @@ class UserMapper {
         id,
         firstName,
         lastName,
-        nickname,
+        nickname: `@${nickname}`,
         address,
         bio,
         createdAt,
