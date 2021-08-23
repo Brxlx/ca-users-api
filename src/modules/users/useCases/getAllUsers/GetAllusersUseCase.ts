@@ -1,6 +1,7 @@
 import { injectable, inject } from 'tsyringe';
 
-import { User } from '../../infra/typeorm/entities/Users';
+import { IUserResponseDTO } from '../../dtos/IUserResponseDTO';
+import { UserMapper } from '../../mappers/UserMapper';
 import { UsersRepositoryContract } from '../../repositories/contracts/UsersRepositoryContract';
 
 @injectable()
@@ -10,8 +11,9 @@ class GetAllUsersUseCase {
     private usersRepository: UsersRepositoryContract
   ) {}
 
-  async execute(): Promise<User[]> {
-    return this.usersRepository.findAll();
+  async execute(): Promise<IUserResponseDTO[]> {
+    const allUsers = await this.usersRepository.findAll();
+    return UserMapper.usersToDTO(allUsers);
   }
 }
 
