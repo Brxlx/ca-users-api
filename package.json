@@ -11,6 +11,7 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored --no-comments"
   },
   "dependencies": {
+    "date-fns": "^2.23.0",
     "dotenv": "^10.0.0",
     "fastify": "^3.20.1",
     "fastify-cors": "^6.0.2",
