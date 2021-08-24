@@ -17,6 +17,7 @@ class CreateUserUseCase {
     // check if nickname already exists
     const checkNickname = await this.usersRepository.findByNickname(nickname);
     if (checkNickname) throw new AppError('Nickname already exists');
+
     try {
       const resp = await this.usersRepository.create(data);
       return resp;

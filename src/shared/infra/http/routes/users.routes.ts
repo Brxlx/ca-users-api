@@ -1,8 +1,8 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import { GetAllUsersController } from 'src/modules/users/useCases/getAllUsers/GetAllusersController';
+import { GetAllUsersController } from 'src/modules/users/useCases/GetAllUsers/GetAllusersController';
 import { container } from 'tsyringe';
 
-import { CreateUserController } from '../../../../modules/users/useCases/createUser/CreateUserController';
+import { CreateUserController } from '../../../../modules/users/useCases/CreateUser/CreateUserController';
 
 const createUserController = container.resolve(CreateUserController);
 const getAllUsersController = container.resolve(GetAllUsersController);

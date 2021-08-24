@@ -1,3 +1,4 @@
+import { DateProviderContract } from 'src/shared/providers/DateProvider/DateProviderContract';
 import { injectable, inject } from 'tsyringe';
 
 import { IUserResponseDTO } from '../../dtos/IUserResponseDTO';
@@ -8,7 +9,8 @@ import { UsersRepositoryContract } from '../../repositories/contracts/UsersRepos
 class GetAllUsersUseCase {
   constructor(
     @inject('UsersRepository')
-    private usersRepository: UsersRepositoryContract
+    private usersRepository: UsersRepositoryContract,
+    private dateProvider: DateProviderContract
   ) {}
 
   async execute(): Promise<IUserResponseDTO[]> {
