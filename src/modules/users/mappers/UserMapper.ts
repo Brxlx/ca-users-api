@@ -28,6 +28,18 @@ class UserMapper {
       },
     ];
   }
+
+  static userNicknameToDTO({
+    firstName,
+    lastName,
+    nickname,
+  }: User): Pick<IUserResponseDTO, 'firstName' | 'lastName' | 'nickname'> {
+    return {
+      firstName,
+      lastName,
+      nickname: `@${nickname}`,
+    };
+  }
 }
 
 export { UserMapper };
