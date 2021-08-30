@@ -20,6 +20,8 @@ class GetUserUseCase {
     if (!nickname) throw new AppError('nickname is required');
 
     const user = await this.usersRepository.findByNickname(nickname);
+
+    if (!user) throw new AppError('User not found', 404);
     return UserMapper.userNicknameToDTO(user);
   }
 }
