@@ -19,7 +19,7 @@ class GetUserUseCase {
   ): Promise<Pick<IUserResponseDTO, 'firstName' | 'lastName' | 'nickname'>> {
     if (!nickname) throw new AppError('nickname is required');
 
-    const user = await this.usersRepository.findByNickname(nickname);
+    const user = await this.usersRepository.findByNickname(nickname.toLowerCase());
 
     if (!user) throw new AppError('User not found', 404);
     return UserMapper.userNicknameToDTO(user);
