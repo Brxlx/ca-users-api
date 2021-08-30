@@ -1,6 +1,5 @@
 import AppError from 'src/shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
-import { DeleteResult } from 'typeorm';
 
 import { UsersRepository } from '../../infra/typeorm/repositories/UsersRepository';
 
@@ -21,8 +20,6 @@ class DeleteUserUseCase {
     const deleteuser = await this.usersRepository.delete(id);
 
     if (deleteuser.affected === 0) throw new AppError('Error trying to delete user');
-
-    // return deleteuser;
   }
 }
 
