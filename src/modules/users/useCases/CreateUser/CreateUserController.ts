@@ -14,11 +14,11 @@ interface IUserRequest {
 }
 
 class CreateUserController {
-  async handle(req: FastifyRequest & IUserRequest, reply: FastifyReply): Promise<void> {
+  async handle(req: FastifyRequest & IUserRequest, reply: FastifyReply): Promise<FastifyReply> {
     const { firstName, lastName, nickname, bio, address } = req.body;
     const createUserUseCase = container.resolve(CreateUserUseCase);
     const resp = await createUserUseCase.execute({ firstName, lastName, nickname, bio, address });
-    reply.code(201).send(resp);
+    return reply.code(201).send(resp);
   }
 }
 

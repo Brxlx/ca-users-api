@@ -13,20 +13,18 @@ class UserMapper {
     };
   }
 
-  static usersToDTO([
-    { id, firstName, lastName, nickname, address, bio, createdAt },
-  ]: User[]): IUserResponseDTO[] {
-    return [
-      {
-        id,
-        firstName,
-        lastName,
-        nickname: `@${nickname}`,
-        address,
-        bio,
-        createdAt,
-      },
-    ];
+  static usersToDTO(users: User[]): IUserResponseDTO[] {
+    return users.map(user => {
+      return {
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        nickname: `@${user.nickname}`,
+        address: user.address,
+        bio: user.bio,
+        createdAt: user.createdAt,
+      };
+    });
   }
 
   static userNicknameToDTO({

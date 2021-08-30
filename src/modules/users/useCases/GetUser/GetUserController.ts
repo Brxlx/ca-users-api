@@ -9,11 +9,11 @@ interface IUserRequest {
   };
 }
 class GetUserController {
-  async handle(req: FastifyRequest & IUserRequest, reply: FastifyReply): Promise<void> {
+  async handle(req: FastifyRequest & IUserRequest, reply: FastifyReply): Promise<FastifyReply> {
     const { nickname } = req.params;
     const getAllUsersuseCase = container.resolve(GetUserUseCase);
     const resp = await getAllUsersuseCase.execute(nickname);
-    reply.code(200).send(resp);
+    return reply.code(200).send(resp);
   }
 }
 
