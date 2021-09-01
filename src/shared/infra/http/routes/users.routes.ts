@@ -1,6 +1,5 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { UpdateUserNicknameController } from 'src/modules/users/useCases/UpdateUserNickname/UpdateUserNicknameController';
-import { UpdateUserNicknameUseCase } from 'src/modules/users/useCases/UpdateUserNickname/UpdateUserNicknameUseCase';
 import { container } from 'tsyringe';
 
 import { CreateUserController } from '../../../../modules/users/useCases/CreateUser/CreateUserController';
