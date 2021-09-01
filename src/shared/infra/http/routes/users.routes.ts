@@ -5,7 +5,7 @@ import { CreateUserController } from '../../../../modules/users/useCases/CreateU
 import { DeleteUserController } from '../../../../modules/users/useCases/DeleteUser/DeleteUserController';
 import { GetAllUsersController } from '../../../../modules/users/useCases/GetAllUsers/GetAllusersController';
 import { GetUserController } from '../../../../modules/users/useCases/GetUser/GetUserController';
-import { UpdateUserLastnameAndBioController } from '../../../../modules/users/useCases/UpdateUserAddressAndBio/UpdateUserLastnameAndBioController';
+import { UpdateUserLastnameAndBioController } from '../../../../modules/users/useCases/UpdateUserLastnameAndBio/UpdateUserLastnameAndBioController';
 import { UpdateUserNicknameController } from '../../../../modules/users/useCases/UpdateUserNickname/UpdateUserNicknameController';
 
 class UsersRoutes {

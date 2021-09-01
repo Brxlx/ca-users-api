@@ -1,13 +1,13 @@
 import AppError from 'src/shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 
-import { UsersRepository } from '../../infra/typeorm/repositories/UsersRepository';
+import { UsersRepositoryContract } from '../../repositories/contracts/UsersRepositoryContract';
 
 @injectable()
 class DeleteUserUseCase {
   constructor(
     @inject('UsersRepository')
-    private usersRepository: UsersRepository
+    private usersRepository: UsersRepositoryContract
   ) {}
 
   async execute(id: string): Promise<void> {

@@ -2,13 +2,13 @@ import AppError from 'src/shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 
 import { User } from '../../infra/typeorm/entities/Users';
-import { UsersRepository } from '../../infra/typeorm/repositories/UsersRepository';
+import { UsersRepositoryContract } from '../../repositories/contracts/UsersRepositoryContract';
 
 @injectable()
 class UpdateUserNicknameUseCase {
   constructor(
     @inject('UsersRepository')
-    private usersRepository: UsersRepository
+    private usersRepository: UsersRepositoryContract
   ) {}
 
   async execute(id: string, nickname: string): Promise<User> {
