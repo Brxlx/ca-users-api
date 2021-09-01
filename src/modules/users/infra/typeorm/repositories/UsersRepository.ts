@@ -35,6 +35,14 @@ class UsersRepository implements UsersRepositoryContract {
     return this.usersRepository.update(id, { nickname });
   }
 
+  public async updateLastnameAndBio(
+    id: string,
+    lastName: string,
+    bio: string
+  ): Promise<UpdateResult> {
+    return this.usersRepository.update(id, { lastName, bio });
+  }
+
   public async delete(id: string): Promise<DeleteResult> {
     return this.usersRepository.delete(id);
   }

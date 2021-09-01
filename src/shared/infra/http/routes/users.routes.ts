@@ -1,11 +1,12 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
-import { UpdateUserNicknameController } from 'src/modules/users/useCases/UpdateUserNickname/UpdateUserNicknameController';
 import { container } from 'tsyringe';
 
 import { CreateUserController } from '../../../../modules/users/useCases/CreateUser/CreateUserController';
 import { DeleteUserController } from '../../../../modules/users/useCases/DeleteUser/DeleteUserController';
 import { GetAllUsersController } from '../../../../modules/users/useCases/GetAllUsers/GetAllusersController';
 import { GetUserController } from '../../../../modules/users/useCases/GetUser/GetUserController';
+import { UpdateUserLastnameAndBioController } from '../../../../modules/users/useCases/UpdateUserAddressAndBio/UpdateUserLastnameAndBioController';
+import { UpdateUserNicknameController } from '../../../../modules/users/useCases/UpdateUserNickname/UpdateUserNicknameController';
 
 class UsersRoutes {
   constructor(private fastify: FastifyInstance) {}
@@ -16,6 +17,7 @@ class UsersRoutes {
     const getUserController = container.resolve(GetUserController);
     const deleteUserController = container.resolve(DeleteUserController);
     const updateUserNickname = container.resolve(UpdateUserNicknameController);
+    const updateUserLastnameAndBio = container.resolve(UpdateUserLastnameAndBioController);
 
     try {
       // Registra cada rota no plugin
@@ -26,6 +28,7 @@ class UsersRoutes {
           instance.get('/user/:nickname', getUserController.handle);
           instance.post('/', createUserController.handle);
           instance.patch('/user/:id', updateUserNickname.handle);
+          instance.put('/user/:id', updateUserLastnameAndBio.handle);
           instance.delete('/user/:id', deleteUserController.handle);
           next();
         },
