@@ -1,5 +1,5 @@
 import { ICreateUserDTO } from 'src/modules/users/dtos/ICreateUserDTO';
-import { DeleteResult, getRepository, Repository } from 'typeorm';
+import { DeleteResult, getRepository, Repository, UpdateResult } from 'typeorm';
 
 import { UsersRepositoryContract } from '../../../repositories/contracts/UsersRepositoryContract';
 import { User } from '../entities/Users';
@@ -29,6 +29,10 @@ class UsersRepository implements UsersRepositoryContract {
     return this.usersRepository.findOne({
       where: { id },
     });
+  }
+
+  public async updateNickname(id: string, nickname: string): Promise<UpdateResult> {
+    return this.usersRepository.update(id, { nickname });
   }
 
   public async delete(id: string): Promise<DeleteResult> {

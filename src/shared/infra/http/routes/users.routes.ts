@@ -1,4 +1,6 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import { UpdateUserNicknameController } from 'src/modules/users/useCases/UpdateUserNickname/UpdateUserNicknameController';
+import { UpdateUserNicknameUseCase } from 'src/modules/users/useCases/UpdateUserNickname/UpdateUserNicknameUseCase';
 import { container } from 'tsyringe';
 
 import { CreateUserController } from '../../../../modules/users/useCases/CreateUser/CreateUserController';
@@ -14,6 +16,7 @@ class UsersRoutes {
     const getAllUsersController = container.resolve(GetAllUsersController);
     const getUserController = container.resolve(GetUserController);
     const deleteUserController = container.resolve(DeleteUserController);
+    const updateUserNickname = container.resolve(UpdateUserNicknameController);
 
     try {
       // Registra cada rota no plugin
@@ -23,6 +26,7 @@ class UsersRoutes {
           instance.get('/', getAllUsersController.handle);
           instance.get('/user/:nickname', getUserController.handle);
           instance.post('/', createUserController.handle);
+          instance.patch('/user/:id', updateUserNickname.handle);
           instance.delete('/user/:id', deleteUserController.handle);
           next();
         },
