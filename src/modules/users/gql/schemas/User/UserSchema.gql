@@ -1,0 +1,16 @@
+scalar Date
+
+type User {
+  id: String
+  firstName: String
+  lastName: String
+  nickname: String
+  address: String
+  bio: String
+  createdAt: Date
+  updatedAt: Date
+}
+
+type Query {
+  getAllUsers(): [User]
+}

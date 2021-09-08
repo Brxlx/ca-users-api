@@ -9,6 +9,10 @@ import { Routes } from './routes';
 
 import '../../container';
 
+// GQL Session
+// import resolvers from ''
+// import schemas from ''
+
 const app = fastify({
   logger: {
     level: 'trace',
