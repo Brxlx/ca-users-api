@@ -11,13 +11,17 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored --no-comments"
   },
   "dependencies": {
+    "@graphql-tools/graphql-file-loader": "^7.1.0",
+    "@graphql-tools/load": "^7.3.0",
+    "@graphql-tools/load-files": "^6.5.1",
+    "@graphql-tools/merge": "^8.1.2",
+    "@graphql-tools/schema": "^8.2.0",
     "date-fns": "^2.23.0",
     "dotenv": "^10.0.0",
     "fastify": "^3.20.1",
     "fastify-cors": "^6.0.2",
     "fastify-plugin": "^3.0.0",
     "graphql": "^15.5.3",
-    "graphql-tools": "^8.2.0",
     "mercurius": "^8.2.1",
     "pg": "^8.7.1",
     "pino-pretty": "^5.1.3",

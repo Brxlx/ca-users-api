@@ -2,12 +2,14 @@ import { container } from 'tsyringe';
 
 import { GetAllUsersUseCase } from '../../../useCases/GetAllUsers/GetAllusersUseCase';
 
-export const usersResolver = {
+const usersResolver = {
   Query: {
-    getAllUsers() {
+    async getAllUsers() {
       const getAllUsersUseCase = container.resolve(GetAllUsersUseCase);
       return getAllUsersUseCase.execute();
     },
   },
-  Mutation: {},
+  // Mutation: {},
 };
+
+export default usersResolver;
