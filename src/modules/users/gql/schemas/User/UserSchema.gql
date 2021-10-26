@@ -16,3 +16,7 @@ type Query {
   getAllUsers: [User]
   getUser(nickname: String!): User
 }
+
+type Mutation {
+  createUser(firstName: String!, lastName: String!, nickname: String!, address: String!, bio: String): User
+}
