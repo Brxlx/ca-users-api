@@ -3,6 +3,7 @@ import { IUserResponseDTO } from 'src/modules/users/dtos/IUserResponseDTO';
 import { User } from 'src/modules/users/infra/typeorm/entities/Users';
 import { CreateUserUseCase } from 'src/modules/users/useCases/CreateUser/CreateUserUseCase';
 import { GetUserUseCase } from 'src/modules/users/useCases/GetUser/GetUserUseCase';
+import { UpdateUserLastnameAndBioUseCase } from 'src/modules/users/useCases/UpdateUserLastnameAndBio/UpdateUserLastnameAndBioUseCase';
 import { UpdateUserNicknameUseCase } from 'src/modules/users/useCases/UpdateUserNickname/UpdateUserNicknameUseCase';
 import { container } from 'tsyringe';
 
@@ -35,6 +36,11 @@ const usersResolver = {
     async updateUserNickname(_: any, { id, nickname }: User): Promise<User> {
       const updateUserUseCase = container.resolve(UpdateUserNicknameUseCase);
       return updateUserUseCase.execute(id, nickname);
+    },
+
+    async updateUserLastNameAndBio(_: any, { id, lastName, bio }: User): Promise<User> {
+      const updateUserLastNameAndBio = container.resolve(UpdateUserLastnameAndBioUseCase);
+      return updateUserLastNameAndBio.execute(id, lastName, bio);
     },
   },
 };
