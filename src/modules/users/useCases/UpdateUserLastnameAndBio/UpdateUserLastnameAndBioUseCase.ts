@@ -18,7 +18,9 @@ class UpdateUserLastnameAndBioUseCase {
 
     if (!findUser) throw new AppError('User not found or invalid');
 
-    const updateUser = await this.usersRepository.updateLastnameAndBio(id, lastName, bio);
+    const bioValue = bio || findUser.bio;
+
+    const updateUser = await this.usersRepository.updateLastnameAndBio(id, lastName, bioValue);
 
     if (updateUser.affected === 0) throw new AppError('Error trying to update user');
 
