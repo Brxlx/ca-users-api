@@ -21,4 +21,5 @@ type Mutation {
   createUser(firstName: String!, lastName: String!, nickname: String!, address: String!, bio: String): User
   updateUserNickname(id: String!, nickname: String!): User
   updateUserLastNameAndBio(id: String!, lastName: String!, bio: String): User
+  deleteUser(id: String!): Boolean
 }
